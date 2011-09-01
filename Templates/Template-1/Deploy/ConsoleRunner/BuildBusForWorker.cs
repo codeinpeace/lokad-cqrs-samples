@@ -17,7 +17,6 @@ using Lokad.Cqrs.Build.Engine;
 using Lokad.Cqrs.Core.Outbox;
 using Lokad.Cqrs.Feature.AzurePartition.Sender;
 using Lokad.Cqrs.Feature.StreamingStorage;
-using ServiceStack.Text;
 
 namespace ConsoleRunner
 {
@@ -30,7 +29,7 @@ namespace ConsoleRunner
 
             var builder = new CqrsEngineBuilder();
 
-            JsonSerialization.Set(builder);
+            JsonSerialization.SetForMessages(builder);
 
             builder.MessagesWithHandlersFromAutofac(d =>
                 {
@@ -65,9 +64,7 @@ namespace ConsoleRunner
                             x.NameForEntity((t, o) => o.ToString().ToLowerInvariant() + ".json");
                             x.FolderForSingleton("template-singleton");
                             x.NameForSingleton(t => t.Name.ToLowerInvariant() + ".json");
-                            x.CustomSerializer(
-                                (o, t, s) => o.SerializeAndFormat(),
-                                (t, s) => TypeSerializer.DeserializeFromStream(typeof(object), s));
+                            JsonSerialization.SetForStorage(x);
                         });
                     m.StreamingIsInAzure(dev);
                 });
