@@ -11,7 +11,7 @@ using ConsoleRunner.Routing;
 using ConsoleRunner.Storage;
 using Domain.Design;
 using Domain.Messages;
-using Domain.Tasks;
+using Domain.ScheduledTasks;
 using Lokad.Cqrs;
 using Lokad.Cqrs.Build.Engine;
 using Lokad.Cqrs.Core.Outbox;

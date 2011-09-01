@@ -7,7 +7,7 @@ using Domain.Messages;
 using Lokad.Cqrs;
 using Lokad.Cqrs.Feature.StreamingStorage;
 
-namespace Domain.Tasks
+namespace Domain.ScheduledTasks
 {
     public class ScanTaskBlob : IEngineProcess
     {
