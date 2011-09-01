@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lokad.Cqrs.Azure</name>
+    </assembly>
+    <members>
+        <member name="T:Lokad.Cqrs.Build.Engine.AzureEngineModule">
+            <summary>
+            Autofac syntax for configuring Azure storage
+            </summary>
+        </member>
+        <member name="T:Lokad.Cqrs.AzureStorage">
+            <summary>
+            Helper class to access Azure storage outside of the engine, if needed
+            </summary>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateNuclear(Microsoft.WindowsAzure.CloudStorageAccount)">
+            <summary>
+            Creates the simplified nuclear storage wrapper around Atomic storage, using the default
+            storage configuration and atomic strategy.
+            </summary>
+            <param name="storageAccount">The storage account.</param>
+            <returns>new instance of the nuclear storage</returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateNuclear(Lokad.Cqrs.IAzureStorageConfig)">
+            <summary>
+            Creates the simplified nuclear storage wrapper around Atomic storage, using the default storage
+            strategy.
+            </summary>
+            <param name="storageConfig">The storage config.</param>
+            <returns>new instance of the nuclear storage</returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateNuclear(Lokad.Cqrs.IAzureStorageConfig,Lokad.Cqrs.Feature.AtomicStorage.IAtomicStorageStrategy)">
+            <summary> Creates the simplified nuclear storage wrapper around Atomic storage. </summary>
+            <param name="storageConfig">The storage config.</param>
+            <param name="strategy">The atomic storage strategy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateNuclear(Microsoft.WindowsAzure.CloudStorageAccount,System.Action{Lokad.Cqrs.Feature.AtomicStorage.DefaultAtomicStorageStrategyBuilder})">
+            <summary> Creates the simplified nuclear storage wrapper around Atomic storage. </summary>
+            <param name="storageAccount">The storage account.</param>
+            <param name="configStrategy">The config strategy builder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateNuclear(Lokad.Cqrs.IAzureStorageConfig,System.Action{Lokad.Cqrs.Feature.AtomicStorage.DefaultAtomicStorageStrategyBuilder})">
+            <summary> Creates the simplified nuclear storage wrapper around Atomic storage. </summary>
+            <param name="storageConfig">The storage config.</param>
+            <param name="configStrategy">The config strategy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateConfig(Microsoft.WindowsAzure.CloudStorageAccount,System.Action{Lokad.Cqrs.Build.AzureStorageConfigurationBuilder})">
+            <summary> Creates the storage access configuration. </summary>
+            <param name="cloudStorageAccount">The cloud storage account.</param>
+            <param name="storageConfigurationStorage">The config storage.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateConfig(System.String,System.Action{Lokad.Cqrs.Build.AzureStorageConfigurationBuilder})">
+            <summary>
+            Creates the storage access configuration.
+            </summary>
+            <param name="storageString">The storage string.</param>
+            <param name="storageConfiguration">The storage configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateConfig(System.String)">
+            Creates the storage access configuration.
+            <param name="storageString">The storage string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateConfigurationForDev">
+            <summary>
+            Creates the storage access configuration for the development storage emulator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateConfig(Microsoft.WindowsAzure.CloudStorageAccount)">
+            <summary>
+            Creates the storage access configuration.
+            </summary>
+            <param name="cloudStorageAccount">The cloud storage account.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateStreaming(Lokad.Cqrs.IAzureStorageConfig)">
+            <summary>
+            Creates the streaming storage out of the provided storage config.
+            </summary>
+            <param name="config">The config.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateStreaming(Microsoft.WindowsAzure.CloudStorageAccount)">
+            <summary>
+            Creates the streaming storage out of the provided cloud storage account.
+            </summary>
+            <param name="config">The config.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateTape(Lokad.Cqrs.IAzureStorageConfig,System.String,System.Boolean)">
+            <summary>
+            Creates the tape storage factory for windows Azure storage.
+            </summary>
+            <param name="config">Azure storage configuration to create tape storage with.</param>
+            <param name="containerName">Name of the container.</param>
+            <param name="initializeForWriting">if set to <c>true</c>, then storage is initialized for writing as needed.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureStorage.CreateTape(Microsoft.WindowsAzure.CloudStorageAccount,System.String,System.Boolean)">
+            <summary>
+            Creates the tape storage factory for windows Azure storage.
+            </summary>
+            <param name="account">Azure account to create tape storage from.</param>
+            <param name="containerName">Name of the container.</param>
+            <param name="initializeForWriting">if set to <c>true</c>, then storage is initialized for writing as needed.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Lokad.Cqrs.AzureSettingsProvider">
+            <summary>
+            Settings provider built on top of the Windows Azure
+            </summary>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureSettingsProvider.TryGetString(System.String,System.String@)">
+            <summary>
+            Attempts to get the configuration string from cloud environment or app settings.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="result">The result.</param>
+            <returns><em>True</em> if configuration value is available, <em>False</em> otherwise</returns>
+        </member>
+        <member name="M:Lokad.Cqrs.AzureSettingsProvider.GetStringOrThrow(System.String)">
+            <summary>
+            Attempts to get the configuration string from cloud environment or app settings. Throws the exception if not available.
+            </summary>
+            <param name="key">The key to look up.</param>
+            <returns>
+            configuration value
+            </returns>
+        </member>
+        <member name="M:Lokad.Cqrs.Build.Engine.CqrsEngineRole.BuildHost">
+            <summary>
+            Implement in the inheriting class to configure the bus host.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicEntityWriter`2">
+            <summary>
+            Azure implementation of the view reader/writer
+            </summary>
+            <typeparam name="TEntity">The type of the view.</typeparam>
+        </member>
+        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicEntityReader`2">
+            <summary>
+            Azure implementation of the view reader/writer
+            </summary>
+            <typeparam name="TEntity">The type of the view.</typeparam>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicStorageFactory.Initialize">
+            <summary>
+            Call this once on start-up to initialize folders
+            </summary>
+        </member>
+        <member name="T:Lokad.Cqrs.Feature.AzurePartition.Inbox.AzurePartitionInbox">
+            <summary>
+            Polling implementation of message reciever for Azure queues
+            </summary>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.StatelessAzureQueueReader.AckMessage(Lokad.Cqrs.Core.Inbox.EnvelopeTransportContext)">
+            <summary>
+            ACKs the message by deleting it from the queue.
+            </summary>
+            <param name="envelope">The message context to ACK.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.AzurePartitionModule.Quarantine(System.Func{Lokad.Cqrs.Core.Container,Lokad.Cqrs.Core.Dispatch.IEnvelopeQuarantine})">
+            <summary>
+            Allows to specify custom <see cref="T:Lokad.Cqrs.Core.Dispatch.IEnvelopeQuarantine"/> optionally resolving 
+            additional instances from the container
+            </summary>
+            <param name="factory">The factory method to specify custom <see cref="T:Lokad.Cqrs.Core.Dispatch.IEnvelopeQuarantine"/>.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.AzurePartitionModule.DecayPolicy(System.TimeSpan)">
+            <summary>
+            Sets the custom decay policy used to throttle Azure queue checks, when there are no messages for some time.
+            This overload eventually slows down requests till the max of <paramref name="maxInterval"/>.
+            </summary>
+            <param name="maxInterval">The maximum interval to keep between checks, when there are no messages in the queue.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.AzurePartitionModule.DecayPolicy(System.Func{System.UInt32,System.TimeSpan})">
+            <summary>
+            Sets the custom decay policy used to throttle Azure queue checks, when there are no messages for some time.
+            </summary>
+            <param name="decayPolicy">The decay policy, which is function that returns time to sleep after Nth empty check.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.AzurePartitionModule.DispatcherIsLambda(Lokad.Cqrs.HandlerFactory)">
+            <summary>
+            Defines dispatcher as lambda method that is resolved against the container
+            </summary>
+            <param name="factory">The factory.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.AzurePartitionModule.QueueVisibility(System.Int32)">
+            <summary>
+            Specifies queue visibility timeout for Azure Queues.
+            </summary>
+            <param name="timeoutMilliseconds">The timeout milliseconds.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.AzurePartition.AzurePartitionModule.QueueVisibility(System.TimeSpan)">
+            <summary>
+            Specifies queue visibility timeout for Azure Queues.
+            </summary>
+            <param name="timespan">The timespan.</param>
+        </member>
+        <member name="T:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingContainer">
+            <summary>
+            Windows Azure implementation of storage 
+            </summary>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingContainer.#ctor(Microsoft.WindowsAzure.StorageClient.CloudBlobDirectory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingContainer"/> class.
+            </summary>
+            <param name="directory">The directory.</param>
+        </member>
+        <member name="T:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem">
+            <summary>
+            Azure BLOB implementation of the <see cref="T:Lokad.Cqrs.Feature.StreamingStorage.IStreamingItem"/>
+            </summary>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem.#ctor(Microsoft.WindowsAzure.StorageClient.CloudBlob)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem"/> class.
+            </summary>
+            <param name="blob">The BLOB.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem.Write(System.Action{System.IO.Stream},Lokad.Cqrs.Feature.StreamingStorage.StreamingCondition,Lokad.Cqrs.Feature.StreamingStorage.StreamingWriteOptions)">
+            <summary>
+            Performs the write operation, ensuring that the condition is met.
+            </summary>
+            <param name="writer">The writer.</param>
+            <param name="condition">The condition.</param>
+            <param name="writeOptions">The write options.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem.ReadInto(Lokad.Cqrs.Feature.StreamingStorage.ReaderDelegate,Lokad.Cqrs.Feature.StreamingStorage.StreamingCondition)">
+            <summary>
+            Attempts to read the storage item.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="condition">The condition.</param>
+            <exception cref="T:Lokad.Cqrs.Feature.StreamingStorage.StreamingItemNotFoundException">if the item does not exist.</exception>
+            <exception cref="T:Lokad.Cqrs.Feature.StreamingStorage.StreamingContainerNotFoundException">if the container for the item does not exist</exception>
+            <exception cref="T:Lokad.Cqrs.Feature.StreamingStorage.StreamingItemIntegrityException">when integrity check fails</exception>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem.Delete(Lokad.Cqrs.Feature.StreamingStorage.StreamingCondition)">
+            <summary>
+            Removes the item, ensuring that the specified condition is met.
+            </summary>
+            <param name="condition">The condition.</param>
+        </member>
+        <member name="P:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem.FullPath">
+            <summary>
+            Gets the full path of the current item.
+            </summary>
+            <value>The full path.</value>
+        </member>
+        <member name="P:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingItem.Reference">
+            <summary>
+            Gets the BLOB reference behind this instance.
+            </summary>
+            <value>The reference.</value>
+        </member>
+        <member name="T:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingRoot">
+            <summary>
+            Windows Azure implementation of storage 
+            </summary>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingRoot.#ctor(Microsoft.WindowsAzure.StorageClient.CloudBlobClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lokad.Cqrs.Feature.StreamingStorage.BlobStreamingRoot"/> class.
+            </summary>
+            <param name="client">The client.</param>
+        </member>
+    </members>
+</doc>
