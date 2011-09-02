@@ -32,7 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Lokad.Cqrs.Azure, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Lokad.Cqrs.Azure">
+      <HintPath>..\..\Library\Lokad.CQRS\Lokad.Cqrs.Azure.dll</HintPath>
+    </Reference>
     <Reference Include="Lokad.Cqrs.Portable, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>

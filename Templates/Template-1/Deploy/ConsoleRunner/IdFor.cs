@@ -1,10 +1,8 @@
-﻿#region Copyright (c) 2009-2011 LOKAD SAS. All rights reserved.
-
-// You must not remove this notice, or any other, from this software.
-// This document is the property of LOKAD SAS and must not be disclosed.
-
+﻿#region (c) 2010-2011 Lokad CQRS - New BSD License 
+// Copyright (c) Lokad SAS 2010-2011 (http://www.lokad.com)
+// This code is released as Open Source under the terms of the New BSD Licence
+// Homepage: http://lokad.github.com/lokad-cqrs/
 #endregion
-
 namespace ConsoleRunner
 {
     /// <summary>
