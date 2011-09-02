@@ -15,6 +15,7 @@ using Lokad.Cqrs;
 using Lokad.Cqrs.Build.Engine;
 using Lokad.Cqrs.Core.Outbox;
 using Lokad.Cqrs.Feature.AzurePartition.Sender;
+using Lokad.Cqrs.Feature.HandlerClasses;
 using Lokad.Cqrs.Feature.StreamingStorage;
 
 namespace ConsoleRunner
@@ -32,7 +33,7 @@ namespace ConsoleRunner
 
             builder.MessagesWithHandlersFromAutofac(d =>
                 {
-                    d.HandlerSample<Define.Handle<Define.Command>>(m => m.Handle(null));
+                    d.HandlerSample<IHandle<Define.Command>>(m => m.Handle(null));
                     d.InAssemblyOf<RunTaskCommand>();
                 });
 
