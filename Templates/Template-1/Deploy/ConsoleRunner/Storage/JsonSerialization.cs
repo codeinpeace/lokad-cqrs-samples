@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Lokad.Cqrs.Build.Engine;
 using Lokad.Cqrs.Core.Serialization;
 using Lokad.Cqrs.Feature.AtomicStorage;
@@ -17,8 +19,8 @@ namespace ConsoleRunner.Storage
         public static void SetForStorage(DefaultAtomicStorageStrategyBuilder builder)
         {
             builder.CustomSerializer(
-                (o, t, s) => o.SerializeAndFormat(),
-                (t, s) => TypeSerializer.DeserializeFromStream(typeof(object), s));
+                FormattedSerializationHelper.SerializeAndFormat,
+                JsonSerializer.DeserializeFromStream);
         }
 
         class JsonDataSerializer : AbstractDataSerializer
@@ -34,6 +36,20 @@ namespace ConsoleRunner.Storage
                 return new Formatter(name,
                     stream => JsonSerializer.DeserializeFromStream(type, stream),
                     (o, stream) => JsonSerializer.SerializeToStream(o, type, stream));
+            }
+        }
+
+        static class FormattedSerializationHelper
+        {
+            public static void SerializeAndFormat(object value, Type type, Stream stream)
+            {
+                var s = value.SerializeAndFormat();
+                var bytes = Encoding.UTF8.GetBytes(s);
+
+                using (var ms = new MemoryStream(bytes))
+                {
+                    ms.CopyTo(stream);
+                }
             }
         }
     }
