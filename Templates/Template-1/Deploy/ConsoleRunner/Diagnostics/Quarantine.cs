@@ -82,7 +82,7 @@ namespace ConsoleRunner.Diagnostics
         static void DescribeMessage(StringBuilder builder, EnvelopeTransportContext context)
         {
             builder.AppendLine(string.Format("{0,12}: {1}", "Queue", context.QueueName));
-            builder.AppendLine(context.Unpacked.PrintToString(TypeSerializer.SerializeToString));
+            builder.AppendLine(context.Unpacked.PrintToString(TypeSerializer.SerializeAndFormat));
         }
     }
 }
