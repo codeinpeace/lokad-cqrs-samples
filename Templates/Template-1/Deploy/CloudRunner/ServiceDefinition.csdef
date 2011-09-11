@@ -7,7 +7,7 @@
       <Setting name="StorageConnectionString" />
     </ConfigurationSettings>
     <LocalResources>
-      <LocalStorage name="LocalStorage" cleanOnRoleRecycle="true" sizeInMB="2048" />
+      <LocalStorage name="LocalStorage" cleanOnRoleRecycle="true" sizeInMB="256" />
     </LocalResources>
   </WorkerRole>
 </ServiceDefinition>
