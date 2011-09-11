@@ -34,11 +34,15 @@
     <Reference Include="Lokad.Cqrs.Portable">
       <HintPath>..\Library\Lokad.CQRS\Lokad.Cqrs.Portable.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Library\Json.Net\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Design\IBusClient.cs" />
+    <Compile Include="Design\JsonSerializationHelper.cs" />
     <Compile Include="Handlers\RunTask.cs" />
     <Compile Include="Messages\RunTaskCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

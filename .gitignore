@@ -6,7 +6,6 @@ build
 *.orig
 output
 publish
-packages
 _ReSharper.*
 *.Resharper
 *.Cache

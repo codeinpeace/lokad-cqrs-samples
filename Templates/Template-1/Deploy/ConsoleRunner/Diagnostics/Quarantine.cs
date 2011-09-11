@@ -11,7 +11,7 @@ using Lokad.Cqrs.Core.Dispatch;
 using Lokad.Cqrs.Core.Envelope;
 using Lokad.Cqrs.Core.Inbox;
 using Lokad.Cqrs.Feature.StreamingStorage;
-using ServiceStack.Text;
+using Newtonsoft.Json;
 
 namespace ConsoleRunner.Diagnostics
 {
@@ -82,7 +82,7 @@ namespace ConsoleRunner.Diagnostics
         static void DescribeMessage(StringBuilder builder, EnvelopeTransportContext context)
         {
             builder.AppendLine(string.Format("{0,12}: {1}", "Queue", context.QueueName));
-            builder.AppendLine(context.Unpacked.PrintToString(TypeSerializer.SerializeAndFormat));
+            builder.AppendLine(context.Unpacked.PrintToString(o => JsonConvert.SerializeObject(o, Formatting.Indented)));
         }
     }
 }
