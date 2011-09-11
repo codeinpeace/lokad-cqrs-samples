@@ -953,7 +953,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Lokad.Cqrs.Feature.AtomicStorage.IAtomicEntityReader`2.TryGet(`0,`1@)">
+        <member name="M:Lokad.Cqrs.Feature.AtomicStorage.IAtomicReader`2.TryGet(`0,`1@)">
             <summary>
             Gets the view with the specified key.
             </summary>
@@ -963,7 +963,7 @@
             true, if it exists
             </returns>
         </member>
-        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.IAtomicEntityWriter`2">
+        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.IAtomicWriter`2">
             <summary>
             View writer interface, used by the event handlers
             </summary>
@@ -1004,6 +1004,12 @@
             </summary>
             <typeparam name="TContext">The type of the context to return.</typeparam>
             <param name="contextFactory">The context factory.</param>
+        </member>
+        <member name="M:Lokad.Cqrs.Feature.HandlerClasses.MessagesWithHandlersConfigurationSyntax.ContextManager(Lokad.Cqrs.Feature.HandlerClasses.IMethodContextManager)">
+            <summary>
+            Allows to specify custom context manager
+            </summary>
+            <param name="contextManager">The context manager.</param>
         </member>
         <member name="M:Lokad.Cqrs.Feature.HandlerClasses.MessagesWithHandlersConfigurationSyntax.HandlerSample``1(System.Linq.Expressions.Expression{System.Action{``0}})">
             <summary>
@@ -1429,6 +1435,16 @@
         <member name="T:Lokad.Cqrs.Build.Engine.CqrsEngineBuilder">
             <summary>
             Fluent API for creating and configuring <see cref="T:Lokad.Cqrs.Build.Engine.CqrsEngineHost"/>
+            </summary>
+        </member>
+        <member name="F:Lokad.Cqrs.Build.Engine.CqrsEngineBuilder.StartupTasks">
+            <summary>
+            Tasks that are executed after engine is initialized and before starting up
+            </summary>
+        </member>
+        <member name="F:Lokad.Cqrs.Build.Engine.CqrsEngineBuilder.AfterConfigurationTasks">
+            <summary>
+            Tasks that are executed before engine is being built
             </summary>
         </member>
         <member name="M:Lokad.Cqrs.Build.Engine.CqrsEngineBuilder.Messages(System.Action{Lokad.Cqrs.Build.MessagesConfigurationSyntax})">

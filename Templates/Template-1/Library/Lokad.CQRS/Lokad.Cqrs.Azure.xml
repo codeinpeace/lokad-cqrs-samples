@@ -140,13 +140,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicEntityWriter`2">
+        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicWriter`2">
             <summary>
             Azure implementation of the view reader/writer
             </summary>
             <typeparam name="TEntity">The type of the view.</typeparam>
+            <typeparam name="TKey">the type of the key</typeparam>
         </member>
-        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicEntityReader`2">
+        <member name="T:Lokad.Cqrs.Feature.AtomicStorage.AzureAtomicReader`2">
             <summary>
             Azure implementation of the view reader/writer
             </summary>
