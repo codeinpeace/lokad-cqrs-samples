@@ -31,13 +31,13 @@ namespace ConsoleRunner.Routing
                 if (message is Define.Event)
                 {
                     _eventWriter.PutMessage(message.BuildEnvelope());
-                    return;
+                    continue;
                 }
 
                 if (message is Define.Command)
                 {
                     _commandWriter.PutMessage(message.BuildEnvelope());
-                    return;
+                    continue;
                 }
 
                 throw new InvalidOperationException(string.Format("Unknown message type {0}.", message.GetType().Name));
